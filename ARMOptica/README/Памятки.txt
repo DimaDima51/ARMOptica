@@ -1,0 +1,25 @@
+﻿//закрытие и открытие формы
+private void OpenNewForma(object sender, EventArgs e)
+{
+    Close(); //закрываем текущую форму
+    NewForma NewForma = new NewForma(); //открываем форму NewForma
+    NewForma.Show();
+}
+
+//только цифры
+private void sortTextBox2_KeyPress(object sender, KeyPressEventArgs e)
+{
+    char number = e.KeyChar;
+    if (!Char.IsDigit(number) && number != 8) // цифры и клавиша BackSpace
+        e.Handled = true;
+}
+
+Открываем MySQL, создаём соединение.
+В созданном соединении смотрим на список схем, чуть ниже них, над "Information" есть две кнопки:
+	1) Administration;
+	2) Schemas (мы сейчас в нём, поэтому он горит).
+Жмём "Administration".
+Нажимаем "Data Import/Restore".
+Выбираем "Import from Self-Contained File" и выбираем DUMP.
+Нажимаем "Start Import".
+Заходим обратно в "Schemas" и обновляем список.
